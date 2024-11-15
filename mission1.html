@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets\css\style.css">
+    <title>Mission 1 - Étude des Données</title>
+</head>
+
+<body>
+    <header class="banner">
+        <img src="assets\images\Kdou.png" alt="Bannière du site" class="banner-image">
+    </header>
+    <header>
+        <h1>Mission 1 - Étude des Données</h1>
+
+        <nav>
+            <a href="accueil.html">Acceuil</a>
+            <a href="mission1.html">Mission 1</a>
+            <a href="mission2.html">Mission 2</a>
+            <a href="mission3.html">Mission 3</a>
+            <div class="animation start-home"></div>
+          </nav>
+    </header>
+
+    <main>
+        <!-- Contexte général -->
+        <section>
+            <h2>Contexte général</h2>
+            <p>
+                Kdou est une entreprise qui vend des produits d'épicerie fine du monde entier, exclusivement en France. 
+                Bien qu'elle réalise un bon chiffre d'affaires, elle cherche à se démarquer de ses concurrents et à améliorer sa rentabilité. 
+                L'entreprise souhaite également adopter une image plus « éco-friendly » pour attirer des clients. Notre mission est donc d'analyser ses données
+                et de proposer des solutions pour l'aider à atteindre ses objectifs.
+            </p>
+            <p>
+                Pour cela, nous avons reçu un fichier <strong>Excel</strong> contenant la base de données. Cette base de données contient plusieurs tables.
+            </p>
+     </section>
+
+     <section>
+        <h2>Extrait des tables de la base de données</h2>
+        <table class="table_excel">
+                <tr>
+                    <th>Fournisseur</th>
+                    <th>Produit</th>
+                    <th>Catégorie</th>
+                    <th>Clientèle</th>
+                    <th>Commande</th>
+                    <th>Détail Commande</th>
+                </tr>
+        </table>
+    </section>
+
+        <!-- Analyse des relations entre les tables -->
+        <section>
+            <h2>Analyse des relations entre les tables</h2>
+            <p>
+                Les questions 1 et 2 de cette mission ont pour but d'analyser les relations entre les tables. Comme nous étions sur Excel, les tables n'avaient pas de relations définies, il a donc fallu analyser quelle table pouvait correspondre à une clé primaire ou à une clé étrangère.
+            </p>
+            <p>Voici un extrait de nos réponses :</p>
+        </section>
+
+        <!-- Exemple de Clé Primaire -->
+        <section>
+            <h2>Exemple de Clé Primaire</h2>
+            <p>
+                Par exemple, dans la table <strong>fournisseur</strong>, on peut prendre comme clé primaire le 
+                <strong>N° fournisseur</strong>, car c'est un numéro unique pour chaque fournisseur et que sa valeur ne peut être nulle.
+            </p>
+            <img src="assets/images/fournisseur_clé_primaire.png" alt="Clé primaire dans la table fournisseur">
+        </section>
+
+        <!-- Exemple de Clé Étrangère -->
+        <section>
+            <h2>Exemple de Clé Étrangère</h2>
+            <p>
+                Pour les clés étrangères, on pourrait par exemple utiliser le <strong>code catégorie</strong> dans la table <strong>produit</strong>, ce qui fait le lien entre la table <strong>produit</strong> et la table <strong>Catégorie</strong>.
+            </p>
+            <img src="assets/images/Code_categorie_cle_etrangere.png" alt="Clé étrangère dans la table produit">
+        </section>
+
+        <!-- Analyse des relations et des clés -->
+        <section>
+            <h2>Analyse des Clés Primaires et Étrangères</h2>
+            <p>
+                Les questions 1 et 2 ont permis de comprendre les relations entre les différentes tables, en particulier en identifiant les clés primaires et étrangères.
+            </p>
+            <p>
+                Dans la table <strong>fournisseur</strong>, la clé primaire est le <strong>N° fournisseur</strong>, un identifiant unique pour chaque fournisseur. Dans la table <strong>produit</strong>, la clé étrangère est le <strong>code Catégorie</strong>, qui fait le lien avec la table <strong>Catégorie</strong>.
+            </p>
+        </section>
+
+        <!---bilan de resultat-->
+        <section>
+            <h2>L'étude de données</h2>
+            <p>La suite de la mission a consisté a <strong>anyliser</strong> les tables afin de répondre a des question précise sur Kdou.</p>
+        </section>
+        <div class="content">
+            <p>Combien y a-t-il de clients nantais ?</p>
+        
+            <!-- Checkbox cachée pour contrôler l'affichage de l'image -->
+            <input type="checkbox" class="toggleImageCheckbox" id="checkbox1">
+        
+            <!-- Label qui agit comme un bouton pour cocher/décocher le checkbox -->
+            <label for="checkbox1" class="button"><strong> Il y a 3 clients nantais </strong></label>
+        
+            <!-- Image du content qui s'affiche quand le checkbox est coché -->
+            <img src="assets/images/cllient nantais.png" alt="client nantais" class="clnantais">
+        </div>
+        
+        <div class="content">
+            <p>Donnez l’adresse du fournisseur Marie Delamare ?</p>
+        
+            <!-- Checkbox cachée pour contrôler l'affichage de l'image -->
+            <input type="checkbox" class="toggleImageCheckbox" id="checkbox2">
+        
+            <!-- Label qui agit comme un bouton pour cocher/décocher le checkbox -->
+            <label for="checkbox2" class="button"><strong>22, rue H. Voiron, Montceau 71300, France.</strong></label>
+        
+            <!-- Image du content qui s'affiche quand le checkbox est coché -->
+            <img src="assets/images/adresse_marie.png" alt="adresse marie" class="clnantais">
+        </div>
+        
+        <div class="content">
+            <p>Quelle est la fonction de contact fournisseur la plus représentée ?
+            </p>
+        
+            <!-- Checkbox cachée pour contrôler l'affichage de l'image -->
+            <input type="checkbox" class="toggleImageCheckbox" id="checkbox3">
+        
+            <!-- Label qui agit comme un bouton pour cocher/décocher le checkbox -->
+            <label for="checkbox3" class="button"><strong> la fonction de contact fournisseur la plus représentée est “Représentant(e)”. </strong></label>
+        
+            <!-- Image du content qui s'affiche quand le checkbox est coché -->
+            <img src="assets/images/fonction_fournisseur.png" alt="fonction_fournisseur" class="clnantais">
+        </div>
+        
+        <div class="content">
+            <p>Combien y a-t-il de pays dans l’UE autre que la France ? 
+            </p>
+        
+            <!-- Checkbox cachée pour contrôler l'affichage de l'image -->
+            <input type="checkbox" class="toggleImageCheckbox" id="checkbox4">
+        
+            <!-- Label qui agit comme un bouton pour cocher/décocher le checkbox -->
+            <label for="checkbox4" class="button"><strong> Il y'a 9 autre pays dans l'UE que la France. </strong></label>
+        
+            <!-- Image du content qui s'affiche quand le checkbox est coché -->
+            <img src="assets/images/pays_ue.png" alt="pays_ue" class="clnantais">
+        </div>
+
+    </main>
+</body>
+
+</html>

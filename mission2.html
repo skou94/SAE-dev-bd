@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Mission 2 </title>
+  <link rel="stylesheet" href="assets\css\style.css">
+</head>
+<body>
+  <header class="banner">
+    <img src="assets\images\Kdou.png" alt="Bannière du site" class="banner-image">
+</header>
+<header>
+  <h1> Mission 2 - Exploitation BBD KDOU</h1>
+
+  <nav>
+    <a href="accueil.html">Acceuil</a>
+    <a href="mission1.html">Mission 1</a>
+    <a href="mission2.html">Mission 2</a>
+    <a href="mission3.html">Mission 3</a>
+    <div class="animation start-home"></div>
+  </nav>
+</header>
+<main>
+  <h2>Contexte :</h2>
+  <p>L’objectif de cette mission est de commencer à exploiter la base de données de
+    l’entreprise KDou pour pouvoir par la suite avoir des analyses et indicateurs pertinents. On
+    souhaite faire des requêtes avec le logiciel Low Code Access.
+  </p>
+  <div>
+    <article>
+      <h3> Indicateur 1</h3>
+      <p> Nous menons une enquête sur les différentes types de produits que chaque pays vends dans le monde. Ici nous cherchons à savoir parmi les différents
+        produits que vends Singapour, à quelles catégories appartiennent tous les produits vendus, donc sur quelles catégories sont basées le commerce de Singapour.
+      </p>
+      <p>
+        Voici la requête SQL de cette problématique :
+      </p>
+      <p class="SQL"><strong>SELECT</strong> Fournisseur.Pays, Categorie.NomCateg <br><strong>FROM</strong> Fournisseur INNER JOIN (Categorie INNER JOIN Produit ON Categorie.CodeCateg = Produit.CodeCateg) ON
+        Fournisseur.NoFour = Produit.NoFour <br><strong>GROUP BY</strong> Fournisseur.Pays, Categorie.NomCateg <br><strong>HAVING</strong> (((Fournisseur.Pays)="Singapour"));
+      </p>
+      <figure>
+        <img src="assets\images\d.webp" alt="Tableau des offres à Singapour">
+        <figcaption> Résultat de la requête SQL </figcaption>
+      </figure>
+    </article>
+
+    <article>
+      <h3> Indicateur 2</h3>
+      <p>
+        Nous menons une enquête sur les viandes qu'achètent chaques grandes villes, ici nous nous focalisons sur le cas de Paris.
+      </p>
+      <p>
+        Voici la requête SQL de cette problématique :
+      </p>
+      <p class="SQL">
+        <strong>SELECT</strong> Produit.NomProd
+        <br><strong>FROM</strong> Client INNER JOIN (Commande INNER JOIN ((Categorie INNER JOIN Produit ON Categorie.CodeCateg = Produit.CodeCateg) INNER JOIN DetailCommande ON Produit.RefProd = DetailCommande.RefProd)
+        ON Commande.NoCom = DetailCommande.NoCom) ON Client.CodeCli = Commande.CodeCli
+        <br><strong>GROUP BY</strong> Produit.NomProd, Categorie.NomCateg, Client.VilleCli, Categorie.NomCateg
+        <br><strong>HAVING</strong> (((Client.VilleCli)="Paris" And (Client.VilleCli)="paris") AND ((Categorie.NomCateg)="viandes" And (Categorie.NomCateg)="viandes"));
+      </p>
+      <p>
+        Voici la requête SQL de cette problématique :
+      </p>
+      <figure>
+        <img src="assets\images\e.webp" alt="Tableau des viandes vendues en France">
+        <figcaption> Résultat de la requête SQL </figcaption>
+      </figure>
+    </article>
+
+    <article>
+      <h3> Indicateur 3</h3>
+      <p>
+        Afin de fixer une limite des prix sur tout les produits vendus, nous cherchons à savoir quel est le prix moyen d'un produit vendu mais aussi le produit au prix
+        le plus bas et le plus haut.
+      </p>
+      <p>
+        Voici la requête SQL de cette problématique :
+      </p>
+      <p class="SQL">
+        <strong>SELECT</strong> Avg(Produit.PrixUnit) AS MoyenneDePrixUnit, Min(Produit.PrixUnit) AS MinDePrixUnit, Max(Produit.PrixUnit) AS MaxDePrixUnit
+        <br><strong>FROM</strong> Produit;
+      </p>
+      <figure>
+        <img src="assets\images\j.webp" alt="Tableau des prix">
+        <figcaption> Résultat de la requête SQL </figcaption>
+      </figure>
+    </article>
+
+    <article>
+      <h3> Indicateur 4</h3>
+      <p>
+        Afin de déterminer comment certains produits d'une même catégorie sont conservés, nous cherchons ici à savoir
+        quels sont les produits conditionnés dans du carton ou du verre.
+      </p>
+      <p>
+        Voici la requête SQL de cette problématique :
+      </p>
+      <p class="SQL">
+        <strong>SELECT</strong> Produit.QteParUnite, Produit.NomProd
+        <br><strong>FROM</strong> Produit
+        <br><strong>WHERE</strong> (((Produit.QteParUnite) Like "*carton*" Or (Produit.QteParUnite) Like "*cartons*" Or (Produit.QteParUnite) Like "*verre*"));
+      </p>
+      <figure>
+        <img src="assets\images\l.webp" alt="Tableau des produits stockées dans du carton/verre">
+        <figcaption> Résultat de la requête SQL </figcaption>
+      </figure>
+    </article>
+  </div>
+</main>
+</body>
+</html>
